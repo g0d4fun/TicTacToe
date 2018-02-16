@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/bungee_shade</item>
+        <item>@font/comfortaa</item>
+        <item>@font/comfortaa_bold</item>
+        <item>@font/oleo_script_swash_caps</item>
+        <item>@font/shojumaru</item>
+        <item>@font/slackey</item>
+    </array>
+</resources>

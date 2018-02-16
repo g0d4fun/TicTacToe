@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/startBackground"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    tools:context="com.example.rafa.tictactoe.MainMenuActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:gravity="center"
+        android:text="Tic Tac Toe"
+        android:textColor="@color/mainColor1"
+        android:textSize="34sp" />
+
+    <Button
+        android:id="@+id/singlePlayerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:fontFamily="@font/comfortaa_bold"
+        android:onClick="onClickSinglePlayer"
+        android:text="Single Player"
+        android:textColor="@color/mainColor2"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/newValue" />
+
+    <Button
+        android:id="@+id/multiplayerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:fontFamily="@font/comfortaa_bold"
+        android:onClick="onClickMultiplayer"
+        android:text="Multiplayer"
+        android:textColor="@color/mainColor2"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/newValue" />
+
+    <Button
+        android:id="@+id/onlineBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:fontFamily="@font/comfortaa_bold"
+        android:onClick="onClickOnline"
+        android:text="Online"
+        android:textColor="@color/mainColor2"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/newValue" />
+
+    <Button
+        android:id="@+id/settingsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:fontFamily="@font/comfortaa_bold"
+        android:onClick="onClickSettings"
+        android:text="Settings"
+        android:textColor="@color/mainColor2"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/newValue" />
+
+    <Button
+        android:id="@+id/aboutUsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:fontFamily="@font/comfortaa_bold"
+        android:onClick="onClickAboutUs"
+        android:text="About Us"
+        android:textColor="@color/mainColor2"
+        android:textSize="20sp" />
+
+</LinearLayout>
