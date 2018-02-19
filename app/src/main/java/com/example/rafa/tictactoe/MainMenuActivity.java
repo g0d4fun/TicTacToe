@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.rafa.tictactoe.model.EGameMode;
+
 public class MainMenuActivity extends AppCompatActivity {
 
     @Override
@@ -18,28 +20,28 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void onClickSinglePlayer(View v){
-        Toast.makeText(this, "SinglePlayer", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "SinglePlayer", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,GameActivity.class);
-        intent.putExtra("game_mode",GameMode.SINGLE_PLAYER);
+        intent.putExtra("game_mode", EGameMode.SINGLE_PLAYER);
         startActivity(intent);
     }
 
     public void onClickMultiplayer(View v){
-        Toast.makeText(this, "Multiplayer", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Multiplayer", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,GameActivity.class);
-        intent.putExtra("game_mode",GameMode.MULTIPLAYER);
+        intent.putExtra("game_mode", EGameMode.MULTIPLAYER);
         startActivity(intent);
     }
 
     public void onClickOnline(View v){
         Toast.makeText(this, "Online", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,GameActivity.class);
-        intent.putExtra("game_mode",GameMode.ONLINE);
+        intent.putExtra("game_mode", EGameMode.ONLINE);
         startActivity(intent);
     }
 
     public void onClickSettings(View v){
-        Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
 
     }
 

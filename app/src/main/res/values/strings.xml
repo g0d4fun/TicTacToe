@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">TicTacToe</string>
     <string name="title_activity_game">GameActivity</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="saveGame">Save Game</string>
+    <string name="exitGameTitle">Keep In Mind</string>
+    <string name="exitGameMessage">Quit Game make you lose your progress. Game can be saved to continue play latter.</string>
+    <string name="playerOTurn">Player O Turn</string>
+    <string name="playerXTurn">Player X Turn</string>
+    <string name="nextGameDialogTitle">Next Game</string>
+    <string name="OWonDlgMsg">Player O Won</string>
+    <string name="XWonDlgMsg">Player X Won</string>
+    <string name="gameDrawDlgMsg">Game Draw</string>
 </resources>

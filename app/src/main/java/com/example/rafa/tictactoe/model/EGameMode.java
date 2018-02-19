@@ -1,10 +1,10 @@
-package com.example.rafa.tictactoe;
+package com.example.rafa.tictactoe.model;
 
 /**
  * Created by Rafa on 2/16/2018.
  */
 
-public enum GameMode {
+public enum EGameMode {
     SINGLE_PLAYER,
     MULTIPLAYER,
     ONLINE
