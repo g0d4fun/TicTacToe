@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-        android:title="Profile">
+
+    <PreferenceCategory android:title="Profile">
         <EditTextPreference
-            android:title="Username"
-            android:summary="Mainly for online game purpose"/>
+            android:summary="Online game purpose"
+            android:title="Username" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="Appearance">
+    <PreferenceCategory android:title="Appearance">
+        <ListPreference
+            android:defaultValue="X"
+            android:entries="@array/typeOfSymbolSP"
+            android:entryValues="@array/typeOfSymbolValuesSP"
+            android:key="kind_of_symbol"
+            android:summary="X or O"
+            android:title="Type Of Symbol" />
         <SwitchPreference
             android:defaultValue="false"
-            android:key="switch_preference_1"
+            android:key="is_black_theme"
             android:title="Black Theme" />
     </PreferenceCategory>
 </PreferenceScreen>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/newValue"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/startBackground"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/comfortaa_bold"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="SELECT YOUR DIFFICULT"
+            android:textColor="@color/mainColor2"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/easyBtn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:fontFamily="@font/comfortaa_bold"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Easy"
+            android:textColor="@color/mainColor1"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/newValue" />
+
+        <Button
+            android:id="@+id/mediumBtn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:fontFamily="@font/comfortaa_bold"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Medium"
+            android:textColor="@color/mainColor1"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/newValue" />
+
+        <Button
+            android:id="@+id/hardBtn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:fontFamily="@font/comfortaa_bold"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Hard"
+            android:textColor="@color/mainColor1"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</LinearLayout>

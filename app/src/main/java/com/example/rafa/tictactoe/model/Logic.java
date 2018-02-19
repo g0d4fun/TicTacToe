@@ -155,6 +155,16 @@ public class Logic {
         return true;
     }
 
+    public static EPlayerType[][] deepCopyIntMatrix(EPlayerType[][] input) {
+        if (input == null)
+            return null;
+        EPlayerType[][] result = new EPlayerType[input.length][];
+        for (int r = 0; r < input.length; r++) {
+            result[r] = input[r].clone();
+        }
+        return result;
+    }
+
     public EPlayerType getCurrentPlayer() {
         return currentPlayer;
     }
@@ -177,7 +187,7 @@ public class Logic {
 
     public Logic getClone(){
         Logic clone = new Logic(initialPlayer);
-        clone.board = board.clone();
+        clone.board = deepCopyIntMatrix(board);
         clone.currentPlayer = currentPlayer;
         clone.playerOWins = playerOWins;
         clone.playerXWins = playerXWins;

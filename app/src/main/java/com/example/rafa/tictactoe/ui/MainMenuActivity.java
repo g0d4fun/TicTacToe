@@ -1,4 +1,4 @@
-package com.example.rafa.tictactoe;
+package com.example.rafa.tictactoe.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.rafa.tictactoe.R;
 import com.example.rafa.tictactoe.model.EGameMode;
+import com.example.rafa.tictactoe.ui.preference.PrefsActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -21,9 +23,8 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void onClickSinglePlayer(View v){
         //Toast.makeText(this, "SinglePlayer", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this,GameActivity.class);
-        intent.putExtra("game_mode", EGameMode.SINGLE_PLAYER);
-        startActivity(intent);
+        DifficultDialog difficultDialog = new DifficultDialog(this);
+        difficultDialog.show();
     }
 
     public void onClickMultiplayer(View v){
@@ -34,18 +35,19 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void onClickOnline(View v){
-        Toast.makeText(this, "Online", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.commingSoon, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,GameActivity.class);
         intent.putExtra("game_mode", EGameMode.ONLINE);
         startActivity(intent);
     }
 
     public void onClickSettings(View v){
-        //Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
-
+        Intent intent = new Intent(getApplicationContext(),PrefsActivity.class);
+        startActivityForResult(intent,0);
     }
 
     public void onClickAboutUs(View v){
-        Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,AboutActivity.class);
+        startActivity(intent);
     }
 }

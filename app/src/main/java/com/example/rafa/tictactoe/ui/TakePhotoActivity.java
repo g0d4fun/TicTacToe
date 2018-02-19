@@ -1,7 +1,9 @@
-package com.example.rafa.tictactoe;
+package com.example.rafa.tictactoe.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.rafa.tictactoe.R;
 
 public class TakePhotoActivity extends AppCompatActivity {
 

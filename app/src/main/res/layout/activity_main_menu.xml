@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:paddingLeft="50dp"
     android:paddingRight="50dp"
-    tools:context="com.example.rafa.tictactoe.MainMenuActivity">
+    tools:context="com.example.rafa.tictactoe.ui.MainMenuActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         android:layout_marginBottom="70dp"
         android:fontFamily="@font/comfortaa_bold"
         android:gravity="center"
-        android:text="Tic Tac Toe"
+        android:text="@string/gameTitle"
         android:textColor="@color/mainColor1"
         android:textSize="34sp" />
 
@@ -28,7 +28,7 @@
         android:background="@null"
         android:fontFamily="@font/comfortaa_bold"
         android:onClick="onClickSinglePlayer"
-        android:text="Single Player"
+        android:text="@string/mainMenuSingleplayer"
         android:textColor="@color/mainColor2"
         android:textSize="20sp" />
 
@@ -44,7 +44,7 @@
         android:background="@null"
         android:fontFamily="@font/comfortaa_bold"
         android:onClick="onClickMultiplayer"
-        android:text="Multiplayer"
+        android:text="@string/mainMenuMultiplayer"
         android:textColor="@color/mainColor2"
         android:textSize="20sp" />
 
@@ -60,7 +60,7 @@
         android:background="@null"
         android:fontFamily="@font/comfortaa_bold"
         android:onClick="onClickOnline"
-        android:text="Online"
+        android:text="@string/mainMenuOnline"
         android:textColor="@color/mainColor2"
         android:textSize="20sp" />
 
@@ -76,7 +76,7 @@
         android:background="@null"
         android:fontFamily="@font/comfortaa_bold"
         android:onClick="onClickSettings"
-        android:text="Settings"
+        android:text="@string/mainMenuSettings"
         android:textColor="@color/mainColor2"
         android:textSize="20sp" />
 
@@ -92,7 +92,7 @@
         android:background="@null"
         android:fontFamily="@font/comfortaa_bold"
         android:onClick="onClickAboutUs"
-        android:text="About Us"
+        android:text="@string/mainMenuAbout"
         android:textColor="@color/mainColor2"
         android:textSize="20sp" />
 

@@ -8,8 +8,9 @@ import android.util.Log;
 
 public class Model {
 
-    public Logic logic;
-    public EGameMode gameMode;
+    private Logic logic;
+    private final EGameMode gameMode;
+    private EGameDifficult difficultSinglePlayer;
 
     public Model(EGameMode gameMode,EPlayerType symbol) {
         this.gameMode = gameMode;
@@ -26,6 +27,12 @@ public class Model {
             default:
                 throw new RuntimeException("It should not Happen");
         }
+        difficultSinglePlayer = null;
+    }
+
+    public Model(EGameMode gameMode, EPlayerType playerx, EGameDifficult gameDifficult) {
+        this(gameMode,playerx);
+        this.difficultSinglePlayer = gameDifficult;
     }
 
     private void startSinglePlayerGame(EPlayerType symbol){
@@ -39,19 +46,47 @@ public class Model {
     // Interation Methods
 
     public void playTile(int row, int col){
-        logic.playTile(row,col);
+        if(!logic.playTile(row,col))
+            return;
 
         //Artificial Intelligence
         if(gameMode.equals(EGameMode.SINGLE_PLAYER)){
-            EPlayerType opponent = logic.getInitialPlayer().equals(EPlayerType.PLAYERX) ?
-                    EPlayerType.PLAYERO : EPlayerType.PLAYERX;
-            Log.i("TicTacToe","Opponent: " + opponent);
-            AlphaBetaPruningAI.run(opponent,logic,3);
+            playTileAI();
         }
     }
 
     public void startNextGame(){
         logic.startNextGame();
+
+        //Artificial Intelligence, first play in Single Player Game
+        EPlayerType initialPlayer = logic.getInitialPlayer();
+        EPlayerType currentPlayer = logic.getCurrentPlayer();
+        if(!initialPlayer.equals(currentPlayer) &&
+            gameMode.equals(EGameMode.SINGLE_PLAYER)){
+            int randomRow = (int) (Math.random() * Constants.ROWS);
+            int randomCol = (int) (Math.random() * Constants.COLUMNS);
+            logic.playTile(randomRow,randomCol);
+        }
+    }
+
+    private void playTileAI(){
+        EPlayerType opponent = logic.getInitialPlayer().equals(EPlayerType.PLAYERX) ?
+                EPlayerType.PLAYERO : EPlayerType.PLAYERX;
+        Log.i("TicTacToe","Opponent: " + opponent);
+        AlphaBetaPruningAI.run(opponent,logic,getMaxDepthByDifficult(difficultSinglePlayer));
+    }
+
+    private int getMaxDepthByDifficult(EGameDifficult gameDifficult){
+        switch (gameDifficult){
+            case EASY:
+                return 1;
+            case MEDIUM:
+                return 2;
+            case HARD:
+                return 4;
+            default:
+                throw new RuntimeException("Difficult is not set.");
+        }
     }
 
     // Getters Methods
@@ -77,5 +112,9 @@ public class Model {
 
     public int getGameDraws() {
         return logic.getGameDraws();
+    }
+
+    public EGameMode getGameMode() {
+        return gameMode;
     }
 }

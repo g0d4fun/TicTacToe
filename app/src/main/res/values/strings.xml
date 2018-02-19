@@ -12,4 +12,12 @@
     <string name="OWonDlgMsg">Player O Won</string>
     <string name="XWonDlgMsg">Player X Won</string>
     <string name="gameDrawDlgMsg">Game Draw</string>
+    <string name="playerYourTurn">Your Turn</string>
+    <string name="mainMenuAbout">About</string>
+    <string name="mainMenuSettings">Settings</string>
+    <string name="mainMenuOnline">Online</string>
+    <string name="mainMenuMultiplayer">Multiplayer</string>
+    <string name="mainMenuSingleplayer">Single Player</string>
+    <string name="gameTitle">Tic Tac Toe</string>
+    <string name="commingSoon">Comming Soon</string>
 </resources>

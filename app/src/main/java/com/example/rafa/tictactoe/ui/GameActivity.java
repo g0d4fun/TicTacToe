@@ -1,4 +1,4 @@
-package com.example.rafa.tictactoe;
+package com.example.rafa.tictactoe.ui;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.rafa.tictactoe.R;
 import com.example.rafa.tictactoe.model.Constants;
+import com.example.rafa.tictactoe.model.EGameDifficult;
 import com.example.rafa.tictactoe.model.EGameMode;
 import com.example.rafa.tictactoe.model.EPlayerType;
 import com.example.rafa.tictactoe.model.Model;
@@ -26,9 +28,19 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_game);
-        EGameMode gameMode = (EGameMode) getIntent().getSerializableExtra("game_mode");
-        clickToNextGame = false;
-        model = new Model(gameMode, EPlayerType.PLAYERX);
+        this.clickToNextGame = false;
+
+        EGameMode gameMode = (EGameMode) getIntent()
+                .getSerializableExtra("game_mode");
+
+        EGameDifficult gameDifficult;
+        if(gameMode.equals(EGameMode.SINGLE_PLAYER)){
+            gameDifficult = (EGameDifficult) getIntent()
+                    .getSerializableExtra("game_difficult");
+            model = new Model(gameMode, EPlayerType.PLAYERX,gameDifficult);
+        }else{
+            model = new Model(gameMode, EPlayerType.PLAYERX);
+        }
         setUpButtonsRefs();
     }
 
@@ -128,7 +140,9 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 
-        if (currentPlayer.equals(EPlayerType.PLAYERO))
+        if(model.getGameMode().equals(EGameMode.SINGLE_PLAYER))
+            ((TextView) findViewById(R.id.currentPlayerView)).setText(R.string.playerYourTurn);
+        else if (currentPlayer.equals(EPlayerType.PLAYERO))
             ((TextView) findViewById(R.id.currentPlayerView)).setText(R.string.playerOTurn);
         else if (currentPlayer.equals(EPlayerType.PLAYERX))
             ((TextView) findViewById(R.id.currentPlayerView)).setText(R.string.playerXTurn);

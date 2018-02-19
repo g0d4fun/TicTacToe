@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenuActivity">
+        <activity android:name=".ui.MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,9 +20,11 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <activity android:name=".TakePhotoActivity" />
-        <activity android:name=".GameActivity">
-        </activity>
+
+        <activity android:name=".ui.TakePhotoActivity" />
+        <activity android:name=".ui.GameActivity"></activity>
+        <activity android:name=".ui.AboutActivity" />
+        <activity android:name=".ui.preference.PrefsActivity" />
     </application>
 
 </manifest>

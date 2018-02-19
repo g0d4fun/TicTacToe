@@ -17,20 +17,18 @@ public class AlphaBetaPruningAI {
             throw new IllegalArgumentException("Maximum depth must be greater than 0.");
         }
         MAX_DEPTH = maxDepth;
-        alphaBetaPruning(logic,0,playerTypeAI,
-                Integer.MIN_VALUE, Integer.MAX_VALUE);
+        alphaBetaPruning(logic,0,playerTypeAI,Integer.MIN_VALUE,Integer.MAX_VALUE);
     }
 
-    private static int alphaBetaPruning (Logic logic,int curDepth, EPlayerType playerTypeAI,
-                                         int alpha, int beta) {
-        int MAX_DEPTH = 10;
+    private static int alphaBetaPruning (Logic logic,int curDepth,
+                                         EPlayerType playerTypeAI, int alpha, int beta) {
         if (curDepth++ == MAX_DEPTH || logic.checkWinnerResult() != null) {
             return score(playerTypeAI, logic, curDepth);
         }
         if (logic.getCurrentPlayer() == playerTypeAI) {
-            return getMax(logic,curDepth,playerTypeAI, alpha, beta);
+            return getMax(logic,curDepth,playerTypeAI, Integer.MIN_VALUE, Integer.MAX_VALUE);
         } else {
-            return getMin(logic,curDepth,playerTypeAI, alpha, beta);
+            return getMin(logic,curDepth,playerTypeAI, Integer.MIN_VALUE, Integer.MAX_VALUE);
         }
     }
 
