@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.rafa.tictactoe">
+
+    <uses-sdk android:minSdkVersion="14" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -9,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainMenuActivity">
+        <activity android:name=".ui.MainMenuActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,10 +30,15 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".ui.TakePhotoActivity" />
-        <activity android:name=".ui.GameActivity"></activity>
-        <activity android:name=".ui.AboutActivity" />
-        <activity android:name=".ui.preference.PrefsActivity" />
+        <activity android:name=".ui.TakePhotoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.GameActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.AboutActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.preference.PrefsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SettingsTheme"/>
     </application>
 
 </manifest>

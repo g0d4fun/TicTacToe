@@ -1,6 +1,10 @@
 package com.example.rafa.tictactoe.ui;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.IntentFilter;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AlertDialog;
@@ -13,15 +17,22 @@ import com.example.rafa.tictactoe.R;
 import com.example.rafa.tictactoe.model.Constants;
 import com.example.rafa.tictactoe.model.EGameDifficult;
 import com.example.rafa.tictactoe.model.EGameMode;
+import com.example.rafa.tictactoe.model.EHostOrGuest;
 import com.example.rafa.tictactoe.model.EPlayerType;
 import com.example.rafa.tictactoe.model.Model;
 import com.example.rafa.tictactoe.model.WinnerInfo;
+import com.example.rafa.tictactoe.model.wifip2p.WiFiDirectBroadcastReceiver;
 
 public class GameActivity extends AppCompatActivity {
 
     private Model model;
     private Button tiles[][];
     private boolean clickToNextGame;
+
+    private WifiP2pManager mManager;
+    private WifiP2pManager.Channel mChannel;
+    private BroadcastReceiver mReceiver;
+    private IntentFilter mIntentFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +45,77 @@ public class GameActivity extends AppCompatActivity {
                 .getSerializableExtra("game_mode");
 
         EGameDifficult gameDifficult;
-        if(gameMode.equals(EGameMode.SINGLE_PLAYER)){
+        if (gameMode.equals(EGameMode.SINGLE_PLAYER)) {
             gameDifficult = (EGameDifficult) getIntent()
                     .getSerializableExtra("game_difficult");
-            model = new Model(gameMode, EPlayerType.PLAYERX,gameDifficult);
-        }else{
+            model = new Model(gameMode, EPlayerType.PLAYERX, gameDifficult);
+        } else if (gameMode.equals(EGameMode.MULTIPLAYER)) {
             model = new Model(gameMode, EPlayerType.PLAYERX);
+        } else if (gameMode.equals(EGameMode.ONLINE)) {
+            model = new Model(gameMode, EPlayerType.PLAYERX);
+
+            EHostOrGuest hostOrGuest = (EHostOrGuest) getIntent().getSerializableExtra("host_guest");
+            setUpWifiP2p(hostOrGuest);
         }
+
         setUpButtonsRefs();
+    }
+
+    private void setUpWifiP2p(EHostOrGuest hostOrGuest) {
+        //Obtain an instance of WifiP2pManager
+        mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
+        // Register your application with the Wi-Fi P2P framework
+        mChannel = mManager.initialize(this, getMainLooper(), null);
+        // This allows your broadcast receiver to notify your activity of interesting events
+        // and update it accordingly. It also lets you manipulate the device's Wi-Fi state if necessary
+        mReceiver = new WiFiDirectBroadcastReceiver(mManager, mChannel, this);
+
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
+        mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
+        mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
+        mIntentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
+
+        mManager.discoverPeers(mChannel, new WifiP2pManager.ActionListener() {
+            // Method only notifies you that the discovery process succeeded and does not provide
+            // any information about the actual peers that it discovered
+            @Override
+            public void onSuccess() {
+
+            }
+
+
+            @Override
+            public void onFailure(int reason) {
+
+            }
+        });
+
+        if (hostOrGuest.equals(EHostOrGuest.HOST)) {
+
+        } else if (hostOrGuest.equals(EHostOrGuest.GUEST)) {
+
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (model.getGameMode().equals(EGameMode.ONLINE)){
+            // Register the broadcast receiver with the intent values to be matched
+            registerReceiver(mReceiver, mIntentFilter);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (model.getGameMode().equals(EGameMode.ONLINE)) {
+            // Unregister the broadcast receiver
+            unregisterReceiver(mReceiver);
+        }
     }
 
     @Override
@@ -51,8 +125,6 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         // Add the buttons
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
@@ -81,6 +153,8 @@ public class GameActivity extends AppCompatActivity {
         // Create the AlertDialog
         AlertDialog dialog = builder.create();
         dialog.show();
+
+        super.onBackPressed();
     }
 
     protected void onClickListener(View v) {
@@ -140,7 +214,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 
-        if(model.getGameMode().equals(EGameMode.SINGLE_PLAYER))
+        if (model.getGameMode().equals(EGameMode.SINGLE_PLAYER))
             ((TextView) findViewById(R.id.currentPlayerView)).setText(R.string.playerYourTurn);
         else if (currentPlayer.equals(EPlayerType.PLAYERO))
             ((TextView) findViewById(R.id.currentPlayerView)).setText(R.string.playerOTurn);
@@ -178,7 +252,7 @@ public class GameActivity extends AppCompatActivity {
         return true;
     }
 
-    protected void highlightWinnerTiles(int winnerTiles[][]){
+    protected void highlightWinnerTiles(int winnerTiles[][]) {
         for (int winnerTile[] : winnerTiles) {
             int row = winnerTile[0];
             int col = winnerTile[1];

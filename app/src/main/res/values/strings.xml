@@ -20,4 +20,15 @@
     <string name="mainMenuSingleplayer">Single Player</string>
     <string name="gameTitle">Tic Tac Toe</string>
     <string name="commingSoon">Comming Soon</string>
+
+
+
+    <!-- Preferences Keys -->
+    <string name="username_key">username_key</string>
+    <string name="is_black_theme_key">is_black_theme_key</string>
+    <string name="type_of_symbol_key">type_of_symbol_key</string>
+    <string name="email_us_key">email_us_key</string>
+
+
+
 </resources>

@@ -4,8 +4,8 @@
         <item>X</item>
         <item>O</item>
     </string-array>
-    <integer-array name="typeOfSymbolValuesSP">
-        <item>0</item>
+    <string-array name="typeOfSymbolValuesSP">
         <item>1</item>
-    </integer-array>
+        <item>2</item>
+    </string-array>
 </resources>

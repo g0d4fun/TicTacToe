@@ -17,8 +17,6 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main_menu);
-
-
     }
 
     public void onClickSinglePlayer(View v){
@@ -36,13 +34,12 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void onClickOnline(View v){
         Toast.makeText(this, R.string.commingSoon, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this,GameActivity.class);
-        intent.putExtra("game_mode", EGameMode.ONLINE);
-        startActivity(intent);
+        HostGuestDialog hostGuestDialog = new HostGuestDialog(this);
+        hostGuestDialog.show();
     }
 
     public void onClickSettings(View v){
-        Intent intent = new Intent(getApplicationContext(),PrefsActivity.class);
+        Intent intent = new Intent(this,PrefsActivity.class);
         startActivityForResult(intent,0);
     }
 
