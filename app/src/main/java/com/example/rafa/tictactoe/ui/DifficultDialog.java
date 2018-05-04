@@ -3,11 +3,16 @@ package com.example.rafa.tictactoe.ui;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.text.Layout;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.rafa.tictactoe.R;
 import com.example.rafa.tictactoe.model.EGameDifficult;
@@ -20,13 +25,15 @@ import com.example.rafa.tictactoe.model.EGameMode;
 public class DifficultDialog extends Dialog implements View.OnClickListener {
 
     private final Context context;
+    private final SharedPreferences sharedPreferences;
 
     private Button easyBtn, mediumBtn, hardBtn;
 
-    public DifficultDialog(@NonNull Context context) {
+    public DifficultDialog(@NonNull Context context, SharedPreferences sharedPreferences) {
         super(context);
 
         this.context = context;
+        this.sharedPreferences = sharedPreferences;
     }
 
     @Override
@@ -42,6 +49,16 @@ public class DifficultDialog extends Dialog implements View.OnClickListener {
         easyBtn.setOnClickListener(this);
         mediumBtn.setOnClickListener(this);
         hardBtn.setOnClickListener(this);
+
+        boolean isInDarkTheme = sharedPreferences.getBoolean(context.getString(R.string.is_black_theme_key),false);
+        if(isInDarkTheme) {
+            int lightColor = context.getColor(R.color.mainColor1);
+            findViewById(R.id.difficult_dialog_layout_bk).setBackgroundColor(lightColor);
+            findViewById(R.id.difficult_dialog_layout).setBackgroundColor(Color.BLACK);
+            ((TextView)findViewById(R.id.select_your_difficult)).setTextColor(lightColor);
+            ((View)findViewById(R.id.delimiter5)).setBackgroundColor(lightColor);
+            ((View)findViewById(R.id.delimiter6)).setBackgroundColor(lightColor);
+        }
     }
 
     @Override

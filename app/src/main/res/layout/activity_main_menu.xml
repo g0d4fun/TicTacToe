@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_menu_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -33,6 +34,7 @@
         android:textSize="20sp" />
 
     <View
+        android:id="@+id/delimiter1"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@color/newValue" />
@@ -49,6 +51,7 @@
         android:textSize="20sp" />
 
     <View
+        android:id="@+id/delimiter2"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@color/newValue" />
@@ -65,6 +68,7 @@
         android:textSize="20sp" />
 
     <View
+        android:id="@+id/delimiter3"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@color/newValue" />
@@ -81,6 +85,7 @@
         android:textSize="20sp" />
 
     <View
+        android:id="@+id/delimiter4"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@color/newValue" />

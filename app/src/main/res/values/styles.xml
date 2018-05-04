@@ -21,7 +21,7 @@
         <!-- Override properties according to your need -->
 
         <item name="android:textColorPrimary">@color/mainColor2</item>
-        <item name="android:textColorSecondary">@color/mainColor1</item>
+        <item name="android:textColorSecondary">@color/mainColor2</item>
     </style>
 
 </resources>

@@ -4,11 +4,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -34,6 +38,9 @@ public class GameActivity extends AppCompatActivity {
     private BroadcastReceiver mReceiver;
     private IntentFilter mIntentFilter;
 
+    private SharedPreferences sharedPreferences;
+    private boolean isDarkThemeActive;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,24 +48,67 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         this.clickToNextGame = false;
 
+        sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        isDarkThemeActive = sharedPreferences.getBoolean(getString(R.string.is_black_theme_key),false);
+
         EGameMode gameMode = (EGameMode) getIntent()
                 .getSerializableExtra("game_mode");
 
         EGameDifficult gameDifficult;
+        int playerTypeXorO = Integer.parseInt(sharedPreferences.getString(getString(R.string.type_of_symbol_key),"1"));
+        EPlayerType playerType;
+        if(playerTypeXorO == 1)
+            playerType = EPlayerType.PLAYERX;
+        else
+            playerType = EPlayerType.PLAYERO;
+
         if (gameMode.equals(EGameMode.SINGLE_PLAYER)) {
             gameDifficult = (EGameDifficult) getIntent()
                     .getSerializableExtra("game_difficult");
-            model = new Model(gameMode, EPlayerType.PLAYERX, gameDifficult);
+            model = new Model(gameMode, playerType, gameDifficult);
         } else if (gameMode.equals(EGameMode.MULTIPLAYER)) {
-            model = new Model(gameMode, EPlayerType.PLAYERX);
+            model = new Model(gameMode, playerType);
         } else if (gameMode.equals(EGameMode.ONLINE)) {
-            model = new Model(gameMode, EPlayerType.PLAYERX);
+            model = new Model(gameMode, playerType);
 
             EHostOrGuest hostOrGuest = (EHostOrGuest) getIntent().getSerializableExtra("host_guest");
             setUpWifiP2p(hostOrGuest);
         }
 
         setUpButtonsRefs();
+        darkTheme(sharedPreferences,isDarkThemeActive);
+    }
+
+    protected void darkTheme(SharedPreferences sharedPreferences, boolean isDarkThemeActive){
+
+        if(isDarkThemeActive) {
+            int lightColor = getColor(R.color.mainColor1);
+            findViewById(R.id.game_activity_bk).setBackgroundColor(Color.BLACK);
+            ((View)findViewById(R.id.board_delimiter1)).setBackgroundColor(lightColor);
+            ((View)findViewById(R.id.board_delimiter2)).setBackgroundColor(lightColor);
+            ((View)findViewById(R.id.board_delimiter3)).setBackgroundColor(lightColor);
+            ((View)findViewById(R.id.board_delimiter4)).setBackgroundColor(lightColor);
+            ((View)findViewById(R.id.board_delimiter5)).setBackgroundColor(lightColor);
+            ((View)findViewById(R.id.board_delimiter6)).setBackgroundColor(lightColor);
+            ((View)findViewById(R.id.board_delimiter7)).setBackgroundColor(lightColor);
+            ((View)findViewById(R.id.board_delimiter8)).setBackgroundColor(lightColor);
+
+            ((TextView)findViewById(R.id.o_score_title)).setTextColor(lightColor);
+            ((TextView)findViewById(R.id.draw_times_title)).setTextColor(lightColor);
+            ((TextView)findViewById(R.id.x_score_title)).setTextColor(lightColor);
+            ((TextView)findViewById(R.id.game_mode)).setTextColor(lightColor);
+            ((TextView)findViewById(R.id.scoreO)).setTextColor(lightColor);
+            ((TextView)findViewById(R.id.scoreDraw)).setTextColor(lightColor);
+            ((TextView)findViewById(R.id.scoreX)).setTextColor(lightColor);
+            ((TextView)findViewById(R.id.currentPlayerView)).setTextColor(lightColor);
+
+            for(Button tilesRow[] : tiles){
+                for(Button tile : tilesRow){
+                    tile.setTextColor(lightColor);
+                }
+            }
+        }
     }
 
     private void setUpWifiP2p(EHostOrGuest hostOrGuest) {
@@ -131,6 +181,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked Yes button
                 dialog.dismiss();
+                GameActivity.super.onBackPressed();
             }
         });
         builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
@@ -154,7 +205,7 @@ public class GameActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
 
-        super.onBackPressed();
+        //super.onBackPressed();
     }
 
     protected void onClickListener(View v) {
@@ -183,9 +234,18 @@ public class GameActivity extends AppCompatActivity {
             btn.setTextColor(getColor(R.color.mainColor1));
         } else if (playerType.equals(EPlayerType.PLAYERX)) {
             btn.setText("X");
-            btn.setTextColor(getColor(R.color.mainColor2));
+            if(isDarkThemeActive){
+                btn.setBackgroundColor(getColor(R.color.mainColor1));
+            }else{
+                btn.setTextColor(getColor(R.color.mainColor2));
+            }
         }
-        btn.setBackgroundColor(getColor(R.color.startBackground));
+        if(isDarkThemeActive){
+            btn.setBackgroundColor(Color.BLACK);
+        }else{
+            btn.setBackgroundColor(getColor(R.color.startBackground));
+        }
+
     }
 
     protected void setUpButtonsRefs() {
@@ -256,7 +316,12 @@ public class GameActivity extends AppCompatActivity {
         for (int winnerTile[] : winnerTiles) {
             int row = winnerTile[0];
             int col = winnerTile[1];
-            tiles[row][col].setBackgroundColor(getColor(R.color.newValue));
+
+            if(isDarkThemeActive){
+                tiles[row][col].setBackgroundColor(Color.GRAY);
+            }else{
+                tiles[row][col].setBackgroundColor(getColor(R.color.newValue));
+            }
         }
 
     }

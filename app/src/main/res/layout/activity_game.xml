@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/game_activity_bk"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/startBackground"
     android:orientation="vertical">
+
     <TextView
-        android:layout_marginTop="10dp"
-        android:text="Single Player"
+        android:id="@+id/game_mode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/comfortaa"
         android:gravity="center"
-        android:textSize="20sp"
+        android:text="Single Player"
         android:textColor="@color/mainColor1"
-        android:fontFamily="@font/comfortaa"/>
+        android:textSize="20sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -26,21 +30,22 @@
             android:orientation="vertical">
 
             <TextView
-                android:textColor="@color/mainColor1"
+                android:id="@+id/o_score_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/comfortaa"
-                android:text="O Score" />
+                android:text="O Score"
+                android:textColor="@color/mainColor1" />
 
             <TextView
                 android:id="@+id/scoreO"
-                android:textColor="@color/mainColor1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/comfortaa"
                 android:text="0"
+                android:textColor="@color/mainColor1"
                 android:textSize="24dp" />
         </LinearLayout>
 
@@ -51,21 +56,22 @@
             android:orientation="vertical">
 
             <TextView
-                android:textColor="@color/mainColor1"
+                android:id="@+id/draw_times_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/comfortaa"
-                android:text="Draw Times" />
+                android:text="Draw Times"
+                android:textColor="@color/mainColor1" />
 
             <TextView
-                android:textColor="@color/mainColor1"
                 android:id="@+id/scoreDraw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/comfortaa"
                 android:text="0"
+                android:textColor="@color/mainColor1"
                 android:textSize="24dp" />
         </LinearLayout>
 
@@ -76,21 +82,22 @@
             android:orientation="vertical">
 
             <TextView
-                android:textColor="@color/mainColor1"
+                android:id="@+id/x_score_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/comfortaa"
-                android:text="X Score" />
+                android:text="X Score"
+                android:textColor="@color/mainColor1" />
 
             <TextView
-                android:textColor="@color/mainColor1"
                 android:id="@+id/scoreX"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/comfortaa"
                 android:text="0"
+                android:textColor="@color/mainColor1"
                 android:textSize="24dp" />
         </LinearLayout>
     </LinearLayout>
@@ -98,12 +105,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_marginTop="80dp"
+        android:layout_marginBottom="60dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginBottom="60dp">
+        android:layout_marginTop="80dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -122,6 +129,7 @@
                 android:textSize="60dp" />
 
             <View
+                android:id="@+id/board_delimiter1"
                 android:layout_width="10dp"
                 android:layout_height="match_parent"
                 android:background="@color/newValue" />
@@ -137,6 +145,7 @@
                 android:textSize="60dp" />
 
             <View
+                android:id="@+id/board_delimiter2"
                 android:layout_width="10dp"
                 android:layout_height="match_parent"
                 android:background="@color/newValue" />
@@ -153,6 +162,7 @@
         </LinearLayout>
 
         <View
+            android:id="@+id/board_delimiter3"
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:background="@color/newValue" />
@@ -174,6 +184,7 @@
                 android:textSize="60dp" />
 
             <View
+                android:id="@+id/board_delimiter4"
                 android:layout_width="10dp"
                 android:layout_height="match_parent"
                 android:background="@color/newValue" />
@@ -189,6 +200,7 @@
                 android:textSize="60dp" />
 
             <View
+                android:id="@+id/board_delimiter5"
                 android:layout_width="10dp"
                 android:layout_height="match_parent"
                 android:background="@color/newValue" />
@@ -205,6 +217,7 @@
         </LinearLayout>
 
         <View
+            android:id="@+id/board_delimiter6"
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:background="@color/newValue" />
@@ -226,6 +239,7 @@
                 android:textSize="60dp" />
 
             <View
+                android:id="@+id/board_delimiter7"
                 android:layout_width="10dp"
                 android:layout_height="match_parent"
                 android:background="@color/newValue" />
@@ -241,6 +255,7 @@
                 android:textSize="60dp" />
 
             <View
+                android:id="@+id/board_delimiter8"
                 android:layout_width="10dp"
                 android:layout_height="match_parent"
                 android:background="@color/newValue" />
@@ -261,11 +276,11 @@
         android:id="@+id/currentPlayerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/comfortaa_bold"
         android:gravity="center_horizontal"
         android:text="Player X Turn"
         android:textColor="@color/mainColor2"
-        android:textSize="32sp"
-        android:layout_marginBottom="10dp"/>
+        android:textSize="32sp" />
 
 </LinearLayout>

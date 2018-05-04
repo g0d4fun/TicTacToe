@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/guesthost_layout_bk"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:background="@color/newValue"
     android:orientation="vertical">
     <LinearLayout
+        android:id="@+id/guesthost_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="5dp"
@@ -14,12 +16,13 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/wifi_game"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:fontFamily="@font/comfortaa_bold"
             android:gravity="center_vertical|center_horizontal"
-            android:text="ONLINE GAME"
+            android:text="WI-FI GAME"
             android:textColor="@color/mainColor2"
             android:textSize="20dp" />
 
@@ -36,6 +39,7 @@
             android:textSize="18sp" />
 
         <View
+            android:id="@+id/delimiter7"
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:layout_marginLeft="50dp"

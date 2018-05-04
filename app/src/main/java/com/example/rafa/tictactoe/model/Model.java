@@ -30,8 +30,8 @@ public class Model {
         difficultSinglePlayer = null;
     }
 
-    public Model(EGameMode gameMode, EPlayerType playerx, EGameDifficult gameDifficult) {
-        this(gameMode,playerx);
+    public Model(EGameMode gameMode, EPlayerType playerType, EGameDifficult gameDifficult) {
+        this(gameMode,playerType);
         this.difficultSinglePlayer = gameDifficult;
     }
 

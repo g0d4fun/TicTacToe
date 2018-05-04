@@ -42,7 +42,7 @@ public class PrefsFragment extends PreferenceFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = super.onCreateView(inflater, container, savedInstanceState);
-        view.setBackgroundColor(getResources().getColor(R.color.startBackground));
+        view.setBackgroundColor(getResources().getColor(R.color.mainColor1));
 
         return view;
     }

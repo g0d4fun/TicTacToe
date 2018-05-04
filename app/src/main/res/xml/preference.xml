@@ -18,7 +18,7 @@
             android:entries="@array/typeOfSymbolSP"
             android:entryValues="@array/typeOfSymbolValuesSP"
             android:key="@string/type_of_symbol_key"
-            android:summary="X - O"
+            android:summary="Your Symbol"
             android:title="Symbol Type" />
         <SwitchPreference
             android:defaultValue="false"
