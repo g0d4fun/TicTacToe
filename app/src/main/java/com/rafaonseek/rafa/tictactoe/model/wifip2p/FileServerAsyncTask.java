@@ -1,4 +1,4 @@
-package com.example.rafa.tictactoe.model.wifip2p;
+package com.rafaonseek.rafa.tictactoe.model.wifip2p;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;

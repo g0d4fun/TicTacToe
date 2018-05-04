@@ -1,10 +1,9 @@
-package com.example.rafa.tictactoe.ui.preference;
+package com.rafaonseek.rafa.tictactoe.ui.preference;
 
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.support.annotation.Nullable;
 
 /**

@@ -1,4 +1,4 @@
-package com.example.rafa.tictactoe.model.wifip2p;
+package com.rafaonseek.rafa.tictactoe.model.wifip2p;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.net.wifi.p2p.WifiP2pDeviceList;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.util.Log;
 
-import com.example.rafa.tictactoe.ui.GameActivity;
+import com.rafaonseek.rafa.tictactoe.ui.GameActivity;
 
 import java.util.Collection;
 

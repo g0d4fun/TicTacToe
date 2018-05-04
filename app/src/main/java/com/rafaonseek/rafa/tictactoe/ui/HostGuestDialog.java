@@ -1,4 +1,4 @@
-package com.example.rafa.tictactoe.ui;
+package com.rafaonseek.rafa.tictactoe.ui;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -13,8 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.rafa.tictactoe.R;
-import com.example.rafa.tictactoe.model.EGameMode;
-import com.example.rafa.tictactoe.model.EHostOrGuest;
+import com.rafaonseek.rafa.tictactoe.model.EGameMode;
+import com.rafaonseek.rafa.tictactoe.model.EHostOrGuest;
 
 public class HostGuestDialog extends Dialog implements View.OnClickListener {
 

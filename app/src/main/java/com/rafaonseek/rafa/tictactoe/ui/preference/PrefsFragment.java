@@ -1,4 +1,4 @@
-package com.example.rafa.tictactoe.ui.preference;
+package com.rafaonseek.rafa.tictactoe.ui.preference;
 
 import android.content.Intent;
 import android.os.Bundle;

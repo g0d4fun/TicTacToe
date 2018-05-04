@@ -1,4 +1,4 @@
-package com.example.rafa.tictactoe.ui;
+package com.rafaonseek.rafa.tictactoe.ui;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,20 +12,19 @@ import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.rafa.tictactoe.R;
-import com.example.rafa.tictactoe.model.Constants;
-import com.example.rafa.tictactoe.model.EGameDifficult;
-import com.example.rafa.tictactoe.model.EGameMode;
-import com.example.rafa.tictactoe.model.EHostOrGuest;
-import com.example.rafa.tictactoe.model.EPlayerType;
-import com.example.rafa.tictactoe.model.Model;
-import com.example.rafa.tictactoe.model.WinnerInfo;
-import com.example.rafa.tictactoe.model.wifip2p.WiFiDirectBroadcastReceiver;
+import com.rafaonseek.rafa.tictactoe.model.Constants;
+import com.rafaonseek.rafa.tictactoe.model.EGameDifficult;
+import com.rafaonseek.rafa.tictactoe.model.EGameMode;
+import com.rafaonseek.rafa.tictactoe.model.EHostOrGuest;
+import com.rafaonseek.rafa.tictactoe.model.EPlayerType;
+import com.rafaonseek.rafa.tictactoe.model.Model;
+import com.rafaonseek.rafa.tictactoe.model.WinnerInfo;
+import com.rafaonseek.rafa.tictactoe.model.wifip2p.WiFiDirectBroadcastReceiver;
 
 public class GameActivity extends AppCompatActivity {
 

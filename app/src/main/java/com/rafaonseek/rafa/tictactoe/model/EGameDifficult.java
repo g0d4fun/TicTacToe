@@ -1,4 +1,4 @@
-package com.example.rafa.tictactoe.model;
+package com.rafaonseek.rafa.tictactoe.model;
 
 /**
  * Created by Rafa on 2/19/2018.
