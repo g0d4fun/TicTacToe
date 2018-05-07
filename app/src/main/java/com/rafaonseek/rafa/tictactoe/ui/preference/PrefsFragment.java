@@ -9,7 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.rafa.tictactoe.R;
+import com.rafaonseek.rafa.tictactoe.R;
+
 
 /**
  * Created by Rafa on 2/19/2018.

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.rafa.tictactoe.R;
+import com.rafaonseek.rafa.tictactoe.R;
 import com.rafaonseek.rafa.tictactoe.model.EGameMode;
 import com.rafaonseek.rafa.tictactoe.ui.preference.PrefsActivity;
 

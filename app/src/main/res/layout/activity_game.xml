@@ -125,7 +125,6 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:fontFamily="@font/shojumaru"
-                android:onClick="onClickListener"
                 android:textSize="60dp" />
 
             <View
@@ -141,7 +140,6 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:fontFamily="@font/shojumaru"
-                android:onClick="onClickListener"
                 android:textSize="60dp" />
 
             <View
@@ -157,7 +155,6 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:fontFamily="@font/shojumaru"
-                android:onClick="onClickListener"
                 android:textSize="60dp" />
         </LinearLayout>
 
@@ -180,7 +177,6 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:fontFamily="@font/shojumaru"
-                android:onClick="onClickListener"
                 android:textSize="60dp" />
 
             <View
@@ -196,7 +192,6 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:fontFamily="@font/shojumaru"
-                android:onClick="onClickListener"
                 android:textSize="60dp" />
 
             <View
@@ -212,7 +207,6 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:fontFamily="@font/shojumaru"
-                android:onClick="onClickListener"
                 android:textSize="60dp" />
         </LinearLayout>
 
@@ -235,7 +229,6 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:fontFamily="@font/shojumaru"
-                android:onClick="onClickListener"
                 android:textSize="60dp" />
 
             <View
@@ -251,7 +244,6 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:fontFamily="@font/shojumaru"
-                android:onClick="onClickListener"
                 android:textSize="60dp" />
 
             <View
@@ -267,7 +259,6 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:fontFamily="@font/shojumaru"
-                android:onClick="onClickListener"
                 android:textSize="60dp" />
         </LinearLayout>
     </LinearLayout>

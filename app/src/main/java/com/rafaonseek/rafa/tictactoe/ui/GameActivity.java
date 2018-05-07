@@ -16,7 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.rafa.tictactoe.R;
+import com.rafaonseek.rafa.tictactoe.R;
 import com.rafaonseek.rafa.tictactoe.model.Constants;
 import com.rafaonseek.rafa.tictactoe.model.EGameDifficult;
 import com.rafaonseek.rafa.tictactoe.model.EGameMode;
@@ -76,10 +76,10 @@ public class GameActivity extends AppCompatActivity {
         }
 
         setUpButtonsRefs();
-        darkTheme(sharedPreferences,isDarkThemeActive);
+        darkTheme(isDarkThemeActive);
     }
 
-    protected void darkTheme(SharedPreferences sharedPreferences, boolean isDarkThemeActive){
+    protected void darkTheme(boolean isDarkThemeActive){
 
         if(isDarkThemeActive) {
             int lightColor = getColor(R.color.mainColor1);
@@ -207,7 +207,7 @@ public class GameActivity extends AppCompatActivity {
         //super.onBackPressed();
     }
 
-    protected void onClickListener(View v) {
+    private void onClickListener(View v) {
         if (clickToNextGame) {
             model.startNextGame();
             renderGame();
@@ -258,6 +258,17 @@ public class GameActivity extends AppCompatActivity {
         tiles[2][0] = findViewById(R.id.tile7);
         tiles[2][1] = findViewById(R.id.tile8);
         tiles[2][2] = findViewById(R.id.tile9);
+
+        for(Button[] rows : tiles){
+            for(Button tile : rows){
+                tile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onClickListener(v);
+                    }
+                });
+            }
+        }
     }
 
     protected void renderGame() {

@@ -12,7 +12,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.rafa.tictactoe.R;
+import com.rafaonseek.rafa.tictactoe.R;
 import com.rafaonseek.rafa.tictactoe.model.EGameDifficult;
 import com.rafaonseek.rafa.tictactoe.model.EGameMode;
 

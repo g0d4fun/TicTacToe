@@ -3,7 +3,7 @@ package com.rafaonseek.rafa.tictactoe.ui;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.rafa.tictactoe.R;
+import com.rafaonseek.rafa.tictactoe.R;
 
 public class TakePhotoActivity extends AppCompatActivity {
 
